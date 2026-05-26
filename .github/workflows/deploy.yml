@@ -18,8 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout your repository using git (including submodules)
         uses: actions/checkout@v6
+        with:
+          submodules: recursive
+          fetch-depth: 0
       - name: Install, build, and upload your site
         uses: withastro/action@v6
         with:
